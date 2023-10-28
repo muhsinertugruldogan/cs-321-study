@@ -49,12 +49,6 @@ cmake_ninja_workdir = C$:/Users/muhsi/CLionProjects/cs-321-study/cmake-build-deb
 
 build cmake_object_order_depends_target_cs_321_study: phony || CMakeFiles/cs_321_study.dir
 
-build CMakeFiles/cs_321_study.dir/week3_app1.cpp.obj: CXX_COMPILER__cs_321_study_unscanned_Debug C$:/Users/muhsi/CLionProjects/cs-321-study/week3_app1.cpp || cmake_object_order_depends_target_cs_321_study
-  DEP_FILE = CMakeFiles\cs_321_study.dir\week3_app1.cpp.obj.d
-  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\cs_321_study.dir
-  OBJECT_FILE_DIR = CMakeFiles\cs_321_study.dir
-
 build CMakeFiles/cs_321_study.dir/wee4_app1.cpp.obj: CXX_COMPILER__cs_321_study_unscanned_Debug C$:/Users/muhsi/CLionProjects/cs-321-study/wee4_app1.cpp || cmake_object_order_depends_target_cs_321_study
   DEP_FILE = CMakeFiles\cs_321_study.dir\wee4_app1.cpp.obj.d
   FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
@@ -69,7 +63,7 @@ build CMakeFiles/cs_321_study.dir/wee4_app1.cpp.obj: CXX_COMPILER__cs_321_study_
 #############################################
 # Link the executable cs_321_study.exe
 
-build cs_321_study.exe: CXX_EXECUTABLE_LINKER__cs_321_study_Debug CMakeFiles/cs_321_study.dir/week3_app1.cpp.obj CMakeFiles/cs_321_study.dir/wee4_app1.cpp.obj
+build cs_321_study.exe: CXX_EXECUTABLE_LINKER__cs_321_study_Debug CMakeFiles/cs_321_study.dir/wee4_app1.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\cs_321_study.dir
