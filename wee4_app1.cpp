@@ -11,60 +11,43 @@ struct IntVector {
     int size;
     int* data;
 
-    IntVector(int size) : size(size), data(new int(size)) {  }
-
-    void setIndex(int index, int value) {
-//above two lines are same with this->
-//        IntVector& iv = *this;
-//        iv.data[index] = value;
-
-        this->data[index] = value;
+    IntVector(int size, int* initial_values) : size(size), data(new int[size]){
+        for(int i = 0; i<size;i++) {
+            data[i] = initial_values[i];
+        }
     }
 
     ~IntVector() {
         delete[] data;
     }
 
+    void setIndex(int index, int value) {
+        this->data[index] = value;
+    }
+
+    void print() {
+        for(int i = 0; i < this->size; i++) {
+            std::cout << this->data[i];
+            if(i != this->size-1)
+                std::cout << ", ";
+        }
+        std::cout << std::endl;
+    }
 };
+// lets write print function. it will be free function because printing is not only for IntVector object.
+
 
 int main(int argc, char* argv[]) {
-    {   // you can control lifecycle of iv.
-        IntVector iv = IntVector(10); // this structure store data and size in stack memory.
+    {
+        int iv_values[10] = {1,2,3,4,5,6,7,8,9,10};
+        IntVector iv = IntVector(10, &iv_values[0]);
         iv.data[2] = 5;
-//        setIndex(iv,2,5);
+        iv.setIndex(0,10);
+        iv.setIndex(1,25);
         iv.setIndex(2,5);
 
+        iv.print();
     }
-    // out of iv it deleted.
-
-    //C has malloc and free for dynamic memory handling
-    //malloc returns void pointer because malloc does not know type of variable.
-    //    int* ptr = (int *)malloc(sizeof (int)* 100);
-//    ptr[0] = 1;
-//    *(ptr + 0);
-//    //above 2 lines are do same job.
-//
-//    ptr[100] = 2; // out of bounds
-//
-//    //above 3 lines are the same
-//    ptr[-1] = 3; // out of bounds
-//    *(ptr + (-1)) = 0;
-//    *((-1) + ptr) = 0;
-//    1[ptr] = 0;
-//
-//    free(ptr);
-//
-//    // C++ ancient way
-//    int* ptr2 = new int[100];
-//    //...
-//    delete[] ptr2;
-//
-//    int* value = new int;
-//    delete value;
-
-
-
-
 
     return 0;
 }
