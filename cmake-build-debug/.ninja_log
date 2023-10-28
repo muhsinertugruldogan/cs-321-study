@@ -1,7 +1,9 @@
 # ninja log v5
-0	85	7201963884461671	CMakeFiles/cs_321_study.dir/week3_app1.cpp.obj	2fc2cc60ddea3ba8
-86	232	7201963885902148	cs_321_study.exe	afda432eed620a7
-0	505	7202058612051202	CMakeFiles/cs_321_study.dir/week3_app1.cpp.obj	2fc2cc60ddea3ba8
-506	782	7202058614764972	cs_321_study.exe	afda432eed620a7
-9	323	7202058814622601	CMakeFiles/cs_321_study.dir/week3_app1.cpp.obj	2fc2cc60ddea3ba8
-323	426	7202058815612897	cs_321_study.exe	afda432eed620a7
+9	391	7202147735235376	CMakeFiles/cs_321_study.dir/week3_app1.cpp.obj	2fc2cc60ddea3ba8
+391	505	7202147736355760	cs_321_study.exe	afda432eed620a7
+12	393	7202206620701971	CMakeFiles/cs_321_study.dir/wee4_app1.cpp.obj	63b124390ddacde6
+4	395	7202206620721974	CMakeFiles/cs_321_study.dir/week3_app1.cpp.obj	2fc2cc60ddea3ba8
+3	369	7202208052800735	CMakeFiles/cs_321_study.dir/wee4_app1.cpp.obj	63b124390ddacde6
+3	317	7202208149345406	CMakeFiles/cs_321_study.dir/wee4_app1.cpp.obj	63b124390ddacde6
+3	324	7202208816115923	CMakeFiles/cs_321_study.dir/week3_app1.cpp.obj	2fc2cc60ddea3ba8
+325	413	7202208816976140	cs_321_study.exe	56474cbf6e613462
