@@ -4,6 +4,9 @@ int a = 5; // static initialization
 int countTVector = 0;
 template <typename T>
 struct Vector {
+    /**
+     * struct starts with public.
+     */
     //counts how many intVector lives in memory.
 //    static int countIntVector = 0;
 //    We cannot initialize static variable in class.
@@ -59,18 +62,23 @@ int main(int argc, char* argv[]) {
     {
         std::cout << countTVector << std::endl;
         int iv_values[10] = {1,2,3,4,5,6,7,8,9,10};
-        Vector<int> iv = Vector<int>(10, &iv_values[0]);
+        /**
+         * initialization process, we repeat the type. Solution is auto keyword.
+         */
+        auto iv = Vector<int>(10, &iv_values[0]);
         std::cout << countTVector << std::endl;
+        {
+            auto iv2 = Vector<int>(5, &iv_values[0]);
+            std::cout << countTVector << std::endl;
+        }
 
-        Vector<int> iv2 = Vector<int>(5, &iv_values[0]);
-        std::cout << countTVector << std::endl;
 
         /**
          * iv and dv are all different classes. They are not related.
          */
         {
             double dv_values[5] = {1.1,2.2,3.3,4.4,5.5};
-            Vector<double> dv = Vector<double>(5,&dv_values[0]);
+            auto dv = Vector<double>(5,&dv_values[0]); // this happens at compile time.
             std::cout << countTVector << std::endl;
             print(dv);
         }
