@@ -28,7 +28,7 @@
  * ::i; // takes global i
  * i; // if name of 'i' become different, this statement takes global i. else, it takes local i.
  * // there are 2 different variable with name i. global and local scope i's.
- *
+ * primitive types: CPU knows that. CPU can understand their type
  *
  */
 #include <iostream>
@@ -48,17 +48,26 @@ int main(int argc, char* argv[]) {
     func(i);
     std::cout << ::i;
 
+    typedef int k; // k becomes a type. it becomes integer.
+    k l = 5; //l is integer.
+
+    typedef struct {int a; int b; } Vector2d;
+    // there are code repetition. we can handle that.
+
     // first 2d vector instance.
-    int a = 5;
-    int b = 7;
+    struct {int a; int b; } A;
+    A.a = 5;
+    A.b = 7;
 
     // second 2d vector instance
-    int m = -1;
-    int n = -3;
+    struct { int a; int b; } B;
+    B.a = -1;
+    B.b = -3;
 
     // add 2d vectors
-    int y = a+m;
-    int z = b+n;
+    struct { int a; int b; } C;
+    C.a = A.a + B.a;
+    C.b = A.b + B.b;
 
     return 0;
 }
