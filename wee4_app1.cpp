@@ -1,27 +1,27 @@
 #include <iostream>
 
 int a = 5; // static initialization
-
-struct IntVector {
-
+int countTVector = 0;
+template <typename T>
+struct Vector {
     //counts how many intVector lives in memory.
 //    static int countIntVector = 0;
 //    We cannot initialize static variable in class.
     int size;
-    int* data;
+    T* data;
 
-    IntVector(int size, int* initial_values) : size(size), data(new int[size]){
+    Vector(int size, T* initial_values) : size(size), data(new T[size]){
         for(int i = 0; i<size;i++)
             data[i] = initial_values[i];
-        countIntVector++;
+        countTVector++;
     }
 
-    ~IntVector() {
+    ~Vector() {
         delete[] data;
-        countIntVector--;
+        countTVector--;
     }
 
-    void setIndex(int index, int value) {
+    void setIndex(int index, T value) {
         this->data[index] = value;
     }
 
@@ -37,7 +37,9 @@ struct IntVector {
     }
 };
 
-void print(const IntVector& iv) {
+
+template <typename T>
+void print(const Vector<T>& iv) {
     static bool firstTime = true; //static extends variable lifecycle.
 
     if(firstTime) {
@@ -55,13 +57,23 @@ void print(const IntVector& iv) {
 
 int main(int argc, char* argv[]) {
     {
-        std::cout << IntVector::countIntVector << std::endl;
+        std::cout << countTVector << std::endl;
         int iv_values[10] = {1,2,3,4,5,6,7,8,9,10};
-        IntVector iv = IntVector(10, &iv_values[0]);
-        std::cout << IntVector::countIntVector << std::endl;
+        Vector<int> iv = Vector<int>(10, &iv_values[0]);
+        std::cout << countTVector << std::endl;
 
-        IntVector iv2 = IntVector(5, &iv_values[0]);
-        std::cout << IntVector::countIntVector << std::endl;
+        Vector<int> iv2 = Vector<int>(5, &iv_values[0]);
+        std::cout << countTVector << std::endl;
+
+        /**
+         * iv and dv are all different classes. They are not related.
+         */
+        {
+            double dv_values[5] = {1.1,2.2,3.3,4.4,5.5};
+            Vector<double> dv = Vector<double>(5,&dv_values[0]);
+            std::cout << countTVector << std::endl;
+            print(dv);
+        }
 
 
         iv.data[2] = 5;
@@ -75,6 +87,6 @@ int main(int argc, char* argv[]) {
         iv.print();
     }
 
-    std::cout << countIntVector << std::endl;
+    std::cout << countTVector << std::endl;
     return 0;
 }
