@@ -44,17 +44,27 @@ Vector2d addVectors(Vector2d first, Vector2d second) { //they are cloned. it is 
     return result;
 }
 
-void initVector2d(Vector2d v, int a, int b) { // again vector2d is cloned.
+//void initVector2d(Vector2d* v, int a, int b) { //pointer cloned
+//    // pointers are very dangerous. we can change it with reference.
+//    // pointers are primitive type.
+//    v->a = a;
+//    v->b = b;
+//}
+void initVector2d(Vector2d& v, int a, int b) { //reference
+    // reference is higher level encapsulation of pointers.
+    // references do not allow pointer arithmetic.
 
+
+    v.a = a;
+    v.b = b;
 }
 
 int main(int argc, char* argv[]) {
     // initialization of vector2d's are messy.
     // first 2d vector instance.
     Vector2d A;
-//    A.a = 5;
-//    A.b = 7;
-    initVector2d(A, 5, 7);
+    initVector2d(A, 5, 7); // memory address cloned.
+    // A changed by pointer.
 
     // second 2d vector instance
     Vector2d B;
