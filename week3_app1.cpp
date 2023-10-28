@@ -25,6 +25,11 @@
  * :: -> go up
  * free functions:
  * method -> function under a class.
+ * ::i; // takes global i
+ * i; // if name of 'i' become different, this statement takes global i. else, it takes local i.
+ * // there are 2 different variable with name i. global and local scope i's.
+ *
+ *
  */
 #include <iostream>
 
@@ -32,19 +37,28 @@ int i = 10; // global scope, it is static initialization. it is not in stack, no
 
 
 // this func() is free.
-void func() {
+void func(int l) { // l is copy of main method i. i is cloned.
     int i = 3;
-    ::i; // takes global i
-    i; // if name of 'i' become different, this statement takes global i. else, it takes local i.
-    // there are 2 different variable with name i. global and local scope i's.
+
 }
 
 int main(int argc, char* argv[]) {
 
     int i = 100; // value itself, not post-it.
-    func();
+    func(i);
     std::cout << ::i;
 
+    // first 2d vector instance.
+    int a = 5;
+    int b = 7;
+
+    // second 2d vector instance
+    int m = -1;
+    int n = -3;
+
+    // add 2d vectors
+    int y = a+m;
+    int z = b+n;
 
     return 0;
 }
