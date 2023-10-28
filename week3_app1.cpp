@@ -11,25 +11,39 @@
  *global/local scope:
  *OS rents, not sell.
  *new keyword demands enough bytes from operating system.
+ *  int* p_i = new int; // it returns beginning address of 4 bytes array that stores integer.
+ *   p_i++; // it increments memory address 4 bytes.
+ *   p_i[0]++; //you have the value of int that pointing by p_i and increments it.
+ *   *(p_i)++; // increments the value referencing by p_i.
+ *   int k = p_i[1]++; // increments next integer and copying it another integer.
+ *   int* p_k = &k; // address of operator.
+ *    // what is variable, where is it, is it a pointer or value itself. These questions are important.
  *
  */
 
+/**
+ * :: -> go up
+ * free functions:
+ * method -> function under a class.
+ */
 #include <iostream>
 
 int i = 10; // global scope, it is static initialization. it is not in stack, not in heap.
 
 
+// this func() is free.
+void func() {
+    int i = 3;
+    ::i; // takes global i
+    i; // if name of 'i' become different, this statement takes global i. else, it takes local i.
+    // there are 2 different variable with name i. global and local scope i's.
+}
+
 int main(int argc, char* argv[]) {
 
     int i = 100; // value itself, not post-it.
-    int* p_i = new int; // it returns beginning address of 4 bytes array that stores integer.
-
-    p_i++; // it increments memory address 4 bytes.
-    p_i[0]++; //you have the value of int that pointing by p_i and increments it.
-    *(p_i)++; // increments the value referencing by p_i.
-    int k = p_i[1]++; // increments next integer and copying it another integer.
-    int* p_k = &k; // address of operator.
-    // what is variable, where is it, is it a pointer or value itself. These questions are important.
+    func();
+    std::cout << ::i;
 
 
     return 0;
