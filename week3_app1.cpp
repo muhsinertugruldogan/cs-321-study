@@ -35,39 +35,34 @@
 
 int i = 10; // global scope, it is static initialization. it is not in stack, not in heap.
 
-
+struct Vector2d {int a; int b; };
 // this func() is free.
-void func(int l) { // l is copy of main method i. i is cloned.
-    int i = 3;
+Vector2d addVectors(Vector2d first, Vector2d second) { //they are cloned. it is pass by value.
+    Vector2d result;
+    result.a = first.a + second.a;
+    result.b = first.b + second.b;
+    return result;
+}
+
+void initVector2d(Vector2d v, int a, int b) { // again vector2d is cloned.
 
 }
 
 int main(int argc, char* argv[]) {
-
-    int i = 100; // value itself, not post-it.
-    func(i);
-    std::cout << ::i;
-
-    typedef int k; // k becomes a type. it becomes integer.
-    k l = 5; //l is integer.
-
-    typedef struct {int a; int b; } Vector2d;
-    // there are code repetition. we can handle that.
-
+    // initialization of vector2d's are messy.
     // first 2d vector instance.
-    struct {int a; int b; } A;
-    A.a = 5;
-    A.b = 7;
+    Vector2d A;
+//    A.a = 5;
+//    A.b = 7;
+    initVector2d(A, 5, 7);
 
     // second 2d vector instance
-    struct { int a; int b; } B;
+    Vector2d B;
     B.a = -1;
     B.b = -3;
 
     // add 2d vectors
-    struct { int a; int b; } C;
-    C.a = A.a + B.a;
-    C.b = A.b + B.b;
+    Vector2d C = addVectors(A,B);
 
     return 0;
 }
