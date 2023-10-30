@@ -58,43 +58,43 @@ void print(const Vector<T>& iv) {
     std::cout << std::endl;
 }
 
-int main(int argc, char* argv[]) {
-    {
-        std::cout << countTVector << std::endl;
-        int iv_values[10] = {1,2,3,4,5,6,7,8,9,10};
-        /**
-         * initialization process, we repeat the type. Solution is auto keyword.
-         */
-        auto iv = Vector<int>(10, &iv_values[0]);
-        std::cout << countTVector << std::endl;
-        {
-            auto iv2 = Vector<int>(5, &iv_values[0]);
-            std::cout << countTVector << std::endl;
-        }
-
-
-        /**
-         * iv and dv are all different classes. They are not related.
-         */
-        {
-            double dv_values[5] = {1.1,2.2,3.3,4.4,5.5};
-            auto dv = Vector<double>(5,&dv_values[0]); // this happens at compile time.
-            std::cout << countTVector << std::endl;
-            print(dv);
-        }
-
-
-        iv.data[2] = 5;
-        iv.setIndex(0,10);
-        iv.setIndex(1,25);
-        iv.setIndex(2,5);
-
-        print(iv);
-        print(iv);
-        print(iv);
-        iv.print();
-    }
-
-    std::cout << countTVector << std::endl;
-    return 0;
-}
+//int main(int argc, char* argv[]) {
+//    {
+//        std::cout << countTVector << std::endl;
+//        int iv_values[10] = {1,2,3,4,5,6,7,8,9,10};
+//        /**
+//         * initialization process, we repeat the type. Solution is auto keyword.
+//         */
+//        auto iv = Vector<int>(10, &iv_values[0]);
+//        std::cout << countTVector << std::endl;
+//        {
+//            auto iv2 = Vector<int>(5, &iv_values[0]);
+//            std::cout << countTVector << std::endl;
+//        }
+//
+//
+//        /**
+//         * iv and dv are all different classes. They are not related.
+//         */
+//        {
+//            double dv_values[5] = {1.1,2.2,3.3,4.4,5.5};
+//            auto dv = Vector<double>(5,&dv_values[0]); // this happens at compile time.
+//            std::cout << countTVector << std::endl;
+//            print(dv);
+//        }
+//
+//
+//        iv.data[2] = 5;
+//        iv.setIndex(0,10);
+//        iv.setIndex(1,25);
+//        iv.setIndex(2,5);
+//
+//        print(iv);
+//        print(iv);
+//        print(iv);
+//        iv.print();
+//    }
+//
+//    std::cout << countTVector << std::endl;
+//    return 0;
+//}
